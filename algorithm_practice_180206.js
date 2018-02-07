@@ -22,7 +22,7 @@ function toWeirdCase(s) {
     for (var j = 0; j < word.length; j++) { //[h,l,l,o]
       if (j % 2 == 0) {
         //짝수 인덱스 대문자로
-        // console.log('up: ' + word[j]);ㄴ
+        // console.log('up: ' + word[j]);
         var up = word[j];
         up = up.toUpperCase();
         // console.log('up: ' + up)

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 스타일 초기화 */
+    
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    
+    button,
+    input {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    /* 숨김 콘텐츠 */
+    
+    .skip-nav {
+      display: none;
+    }
+    
+    .readable-hidden,
+    legend {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      clip: rect(0 0 0 0);
+      clip: rect(0, 0, 0, 0);
+      overflow: hidden;
+    }
+    
+    li {
+      list-style: none;
+    }
+    /* 링크 스타일 */
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: #666;
+    }
+    
+    a:hover,
+    a:focus {
+      color: #f00;
+    }
+    /* 레이아웃 */
+    
+    #wrapper {
+      outline: 1px solid navy;
+      width: 1500px;
+      padding: 0 30px;
+    }
+    
+    ul.special_products {
+      background-color: yellow;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    ul.special_products>li {
+      outline: dotted 1px navy;
+    }
+    
+    nav {
+      margin-top: 20px;
+    }
+    
+    ul#category {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+    }
+    /* ul#shop_by_category li {
+      outline: solid 1px red;
+    } */
+    
+    #category li:nth-child(1) {
+      background: skyblue;
+      width: 450px;
+      height: 500px;
+      order: 3;
+    }
+    
+    #category li:nth-child(2) {
+      background: pink;
+      width: 470px;
+      height: 500px;
+      order: 2;
+    }
+    
+    #category li:nth-child(3) {
+      background: orange;
+      width: 520px;
+      height: 230px;
+      align-self: flex-start;
+      order: 1;
+    }
+    
+    #category li:nth-child(4) {
+      background: olive;
+      width: 520px;
+      height: 230px;
+      align-self: flex-end;
+      order: 4;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div id="wrapper">
+    <h1 class='skip-nav'>쇼핑몰</h1>
+    <main>
+      <ul class="special_products">
+        <li>
+          <a href="">
+            <img src='https://dummyimage.com/276x400.jpg?text=Product' alt='' />
+          </a>
+          <a href="">
+            <ul class="specific">
+              <li>company name</li>
+              <li>product name</li>
+              <li>price</li>
+              <li>score</li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src='https://dummyimage.com/276x400.jpg?text=Product' alt='' />
+          </a>
+          <a href="">
+            <ul class="specific">
+              <li>company name</li>
+              <li>product name</li>
+              <li>price</li>
+              <li>score</li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src='https://dummyimage.com/276x400.jpg?text=Product' alt='' />
+          </a>
+          <a href="">
+            <ul class="specific">
+              <li>company name</li>
+              <li>product name</li>
+              <li>price</li>
+              <li>score</li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src='https://dummyimage.com/276x400.jpg?text=Product' alt='' />
+          </a>
+          <a href="">
+            <ul class="specific">
+              <li>company name</li>
+              <li>product name</li>
+              <li>price</li>
+              <li>score</li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src='https://dummyimage.com/276x400.jpg?text=Product' alt='' />
+          </a>
+          <a href="">
+            <ul class="specific">
+              <li>company name</li>
+              <li>product name</li>
+              <li>price</li>
+              <li>score</li>
+            </ul>
+          </a>
+        </li>
+      </ul>
+    </main>
+
+    <nav>
+      <ul id="category">
+        <li>discounts</li>
+        <li>news</li>
+        <li>details</li>
+        <li>inspires</li>
+      </ul>
+    </nav>
+  </div>
+</body>
+
+</html>
