@@ -2,19 +2,20 @@ module.exports = {
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": false,
+        "es6": true,
         "node": true,
         "jquery": true
-    },    
-    "extends": "eslint-config-airbnb-es5",
-    "plugins": [ "import", "html" ],
+    },
+    "extends": "airbnb-base",
+    "plugins": ["import", "html"],
     "rules": {
         // 0 "off", 1 "warn" 2 "error"
         "no-console": "warn",
-        "quotes": [ "error", "single" ],
+        "quotes": ["error", "single"],
         "no-underscore-dangle": "warn",
-        "no-plusplus": [ "error", { "allowForLoopAfterthoughts": true }],
-        "comma-dangle": [ "error", "never"]
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "comma-dangle": ["error", "never"],
+        "wrap-iife": [2, "any"],
+        "func-names": ["error", "never"]
     }
 };
-// eslint unexpected unnamed function
