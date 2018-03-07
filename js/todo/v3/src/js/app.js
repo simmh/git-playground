@@ -73,11 +73,10 @@ import axios from 'axios';
 
 
   // POST
-  const TodoPost = function (payload) { // done
+  const TodoPost = function (payload) { 
     axios.post('/todos', payload) // payload: { id, content, completed }
       .then(() => {
         TodoGet();
-        console.log('axios.post', payload);
       })
       .catch(err => console.log('[POST] \n', err.response));
   };
@@ -85,16 +84,14 @@ import axios from 'axios';
   // PATCH
   const TodoPatch = function (id, payload) {
     axios.patch(`/todos/id/${id}`, payload) // payload: { completed }
-      .then(({ data }) => {
+      .then(() => {
         TodoGet();
-        console.log('TodoPath: ', id, payload);
-        console.log(data);
       })
       .catch(err => console.log(err));
   };
 
   // PATCH ALL
-  const TodoPatchAll = function (payload) { // done
+  const TodoPatchAll = function (payload) {
     axios.patch('/todos', payload) // payload: { completed }
       .then(() => {
         TodoGet();
@@ -103,7 +100,7 @@ import axios from 'axios';
   };
 
   // DELETE
-  const TodoDelete = function (id) { // done
+  const TodoDelete = function (id) {
     axios.delete(`/todos/id/${id}`)
       .then(() => {
         TodoGet();
@@ -112,11 +109,10 @@ import axios from 'axios';
   };
 
   // DELETE Completed All
-  const TodoCompleteAll = function () { // done
+  const TodoCompleteAll = function () { 
     axios.delete('/todos/completed')
-      .then(({ data }) => {
+      .then(() => {
         TodoGet();
-        console.log(data);
       })
       .catch(err => console.log('[DELETE ALL] \n', err.response));
   };

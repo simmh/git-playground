@@ -12645,11 +12645,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   // POST
   var TodoPost = function TodoPost(payload) {
-    // done
     _axios2.default.post('/todos', payload) // payload: { id, content, completed }
     .then(function () {
       TodoGet();
-      console.log('axios.post', payload);
     }).catch(function (err) {
       return console.log('[POST] \n', err.response);
     });
@@ -12658,12 +12656,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   // PATCH
   var TodoPatch = function TodoPatch(id, payload) {
     _axios2.default.patch('/todos/id/' + id, payload) // payload: { completed }
-    .then(function (_ref5) {
-      var data = _ref5.data;
-
+    .then(function () {
       TodoGet();
-      console.log('TodoPath: ', id, payload);
-      console.log(data);
     }).catch(function (err) {
       return console.log(err);
     });
@@ -12671,7 +12665,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   // PATCH ALL
   var TodoPatchAll = function TodoPatchAll(payload) {
-    // done
     _axios2.default.patch('/todos', payload) // payload: { completed }
     .then(function () {
       TodoGet();
@@ -12682,7 +12675,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   // DELETE
   var TodoDelete = function TodoDelete(id) {
-    // done
     _axios2.default.delete('/todos/id/' + id).then(function () {
       TodoGet();
     }).catch(function (err) {
@@ -12692,12 +12684,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   // DELETE Completed All
   var TodoCompleteAll = function TodoCompleteAll() {
-    // done
-    _axios2.default.delete('/todos/completed').then(function (_ref6) {
-      var data = _ref6.data;
-
+    _axios2.default.delete('/todos/completed').then(function () {
       TodoGet();
-      console.log(data);
     }).catch(function (err) {
       return console.log('[DELETE ALL] \n', err.response);
     });
