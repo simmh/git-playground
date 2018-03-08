@@ -61,7 +61,7 @@ import axios from 'axios';
   };
 
 
-  const TodoGet = function () { // done
+  const todoGet = function () { // done
     axios.get('/todos')
       .then(({ data }) => {
         todos = data;
@@ -73,46 +73,46 @@ import axios from 'axios';
 
 
   // POST
-  const TodoPost = function (payload) { 
+  const todoPost = function (payload) { 
     axios.post('/todos', payload) // payload: { id, content, completed }
       .then(() => {
-        TodoGet();
+        todoGet();
       })
       .catch(err => console.log('[POST] \n', err.response));
   };
 
   // PATCH
-  const TodoPatch = function (id, payload) {
+  const todoPatch = function (id, payload) {
     axios.patch(`/todos/id/${id}`, payload) // payload: { completed }
       .then(() => {
-        TodoGet();
+        todoGet();
       })
       .catch(err => console.log(err));
   };
 
   // PATCH ALL
-  const TodoPatchAll = function (payload) {
+  const todoPatchAll = function (payload) {
     axios.patch('/todos', payload) // payload: { completed }
       .then(() => {
-        TodoGet();
+        todoGet();
       })
       .catch(err => console.log('[PATH ALL] \n', err.response));
   };
 
   // DELETE
-  const TodoDelete = function (id) {
+  const todoDelete = function (id) {
     axios.delete(`/todos/id/${id}`)
       .then(() => {
-        TodoGet();
+        todoGet();
       })
       .catch(err => console.log('[DELETE] \n', err.response));
   };
 
   // DELETE Completed All
-  const TodoCompleteAll = function () { 
+  const todoCompleteAll = function () { 
     axios.delete('/todos/completed')
       .then(() => {
-        TodoGet();
+        todoGet();
       })
       .catch(err => console.log('[DELETE ALL] \n', err.response));
   };
@@ -121,14 +121,14 @@ import axios from 'axios';
   const addTodo = function (content) {
     const todo = { id: generateTodoId(), content, completed: false };
     todos = [todo, ...todos];
-    TodoPost(todo);
+    todoPost(todo);
     console.log('[ADD]\n', todo);
   };
 
   const removeTodo = function (id) {
     todos = todos.filter(todo => todo.id !== +id);
-    TodoDelete(id);
-    TodoGet();
+    todoDelete(id);
+    todoGet();
     console.log('[REMOVE]\n', todos);
   };
 
@@ -138,25 +138,25 @@ import axios from 'axios';
     todos = todos.map(function (todo) { 
       return todo.id === +id ? toggleItem = Object.assign({}, todo, { completed: !todo.completed }) : todo 
     });
-    TodoPatch(toggleItem.id, { completed: toggleItem.completed });
+    todoPatch(toggleItem.id, { completed: toggleItem.completed });
     console.log('[TOGGLE-COMP]\n', todos);
   };
 
   const toggleTodoAllComplete = function (chkStatus) {
     todos = todos.map(todo => Object.assign({}, todo, { completed: chkStatus }));
-    TodoPatchAll({ completed: chkStatus });
+    todoPatchAll({ completed: chkStatus });
     console.log('[ALL-COMP]\n', todos);
   };
 
   const removeCompletedTodo = function () {
     todos = todos.filter(todo => !todo.completed);
-    TodoCompleteAll();
+    todoCompleteAll();
     renderTodos();
     console.log('[REMOVE-COMP]\n', todos);
   };
 
   // load 이벤트는 모든 리소스(image, script, css 등)의 로드가 완료하면 발생한다.
-  window.addEventListener('load', TodoGet());
+  window.addEventListener('load', todoGet());
 
   inputTodo.addEventListener('keyup', e => {
     if (e.keyCode !== 13 || !inputTodo.value) return;
