@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="title">Todos</h1>
+      <!-- input todo -->
+      <app-todo-form (addTodo)="addTodo($event)"></app-todo-form>
+      
+        <!-- @input nav -->
+        <app-todo-nav (setCurrentNavItem)="setCurrentNavItem($event)" [navItems]="navItems" [selectedNavItem]="selectedNavItem"></app-todo-nav>      
+    
+      <app-todo-list [todos]="todos" [selectedNavItem]="selectedNavItem"
+      (removeTodo)="removeTodo($event)" (toggleComplete)="toggleComplete($event)"
+      ></app-todo-list>
+      <div class="col-xs-6">
+        <label class="i-checks" style="padding-left: 20px">
+          <input type="checkbox" (change)="toggleAllTodoAsComplete($event.target.checked)">
+          <i></i>
+          <span>Mark all as complete</span>
+        </label>
+      </div>
+      <div class="col-xs-6 text-right">
+        <app-todo-footer (removeCompletedTodos)="removeCompletedTodos($event)"  [getCntCompletedTodos]="getCntCompletedTodos()" 
+        [getCntActiveTodos]="getCntActiveTodos()"
+        ></app-todo-footer>
+      </div>
+      <div class="col-md-12" style="margin-top: 30px">
+        <pre>{{todos | json}}</pre>
+      </div>
+    </div>
+  </div>
+</div>
